@@ -71,6 +71,7 @@ extension PostsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: PostsTableViewCell.cellID, for: indexPath) as! PostsTableViewCell
         cell.configure(with: self.postViewModel.postArray[indexPath.row])
+        print(postViewModel.postArray)
         return cell
     }
     
