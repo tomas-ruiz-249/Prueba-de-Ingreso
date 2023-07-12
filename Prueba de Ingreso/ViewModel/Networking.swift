@@ -18,7 +18,7 @@ class Networking {
     
     static let urlUser = "/users"
     static let urlAllPosts = "/posts"
-    static let urlSpecificPost = "/posts?userId=\(TableViewCellViewModel.userId!)"
+    static let urlSpecificPost = "/posts?userId=\(TableViewCell.userId!)"
     
     
     func request<T: Decodable>(path: String, completion: @escaping (Result<T, Error>) -> Void) {
@@ -26,7 +26,6 @@ class Networking {
             completion(.failure(NetworkError.unknown))
             return
         }
-        
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {

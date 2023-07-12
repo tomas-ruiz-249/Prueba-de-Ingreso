@@ -31,8 +31,8 @@ class TableViewController: UIViewController, UISearchResultsUpdating{
     
     override func loadView() {
         super.loadView()
-        setup()
         userViewModel.getUsers()
+        setup()
         userViewModel.updateView = { [weak self] in
             if let errorMessage = self?.userViewModel.errorMessage {
                 let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertController.Style.alert)

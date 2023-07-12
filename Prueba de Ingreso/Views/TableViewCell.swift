@@ -9,12 +9,12 @@ import UIKit
 
 class TableViewCellViewModel {
     var user: User?
-    static var userId: Int?
 }
 
 class TableViewCell: UITableViewCell {
     static let cellID = "cell"
     var viewModel = TableViewCellViewModel()
+    static var userId: Int?
     var cellTapped: ((User) -> Void)?
     //MARK: - UI
     
@@ -172,12 +172,11 @@ class TableViewCell: UITableViewCell {
             
         ])
     }
-    
     @objc func didTapButton(){
         if let user = self.viewModel.user {
             self.cellTapped?(user)
-            TableViewCellViewModel.userId = user.id
-            print(TableViewCellViewModel.userId!)
+            TableViewCell.userId = user.id
+            print(TableViewCell.userId!)
         }
     }
 }
