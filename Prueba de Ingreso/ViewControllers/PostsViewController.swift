@@ -25,7 +25,7 @@ class PostsViewController: UIViewController {
     override func loadView() {
         super.loadView()
         setup()
-        postViewModel.getPosts()
+        postViewModel.getPostsFromUser()
         postViewModel.updateView = { [weak self] in
             if let errorMessage = self?.postViewModel.errorMessage {
                 let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertController.Style.alert)
@@ -71,7 +71,7 @@ extension PostsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: PostsTableViewCell.cellID, for: indexPath) as! PostsTableViewCell
         cell.configure(with: self.postViewModel.postArray[indexPath.row])
-        print(postViewModel.postArray)
+        
         return cell
     }
     

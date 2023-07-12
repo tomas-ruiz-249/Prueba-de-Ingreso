@@ -33,7 +33,7 @@ class ViewModel{
     }
     
     func getPosts() {
-        networking.request(path: Networking.urlPost) { [weak self] (result: Result<[Post], Error>) in
+        networking.request(path: Networking.urlAllPosts) { [weak self] (result: Result<[Post], Error>) in
             switch result {
             case .success(let response):
                 self?.postArray = response
@@ -44,5 +44,16 @@ class ViewModel{
         }
     }
     
+    func getPostsFromUser() {
+        networking.request(path: Networking.urlSpecificPost) { [weak self] (result: Result<[Post], Error>) in
+            switch result {
+            case .success(let response):
+                self?.postArray = response
+            case .failure(let error):
+                self?.errorMessage = error.localizedDescription
+            }
+            self?.updateView?()
+        }
+    }
 }
 

@@ -9,10 +9,10 @@ import UIKit
 
 class TableViewCellViewModel {
     var user: User?
+    static var userId: Int?
 }
 
 class TableViewCell: UITableViewCell {
-    
     static let cellID = "cell"
     var viewModel = TableViewCellViewModel()
     var cellTapped: ((User) -> Void)?
@@ -176,6 +176,8 @@ class TableViewCell: UITableViewCell {
     @objc func didTapButton(){
         if let user = self.viewModel.user {
             self.cellTapped?(user)
+            TableViewCellViewModel.userId = user.id
+            print(TableViewCellViewModel.userId!)
         }
     }
 }

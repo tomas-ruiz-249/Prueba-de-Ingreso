@@ -17,7 +17,8 @@ class Networking {
     private let baseURL = "https://jsonplaceholder.typicode.com"
     
     static let urlUser = "/users"
-    static let urlPost = "/posts"
+    static let urlAllPosts = "/posts"
+    static let urlSpecificPost = "/posts?userId=\(TableViewCellViewModel.userId!)"
     
     
     func request<T: Decodable>(path: String, completion: @escaping (Result<T, Error>) -> Void) {
