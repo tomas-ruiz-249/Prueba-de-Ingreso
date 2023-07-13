@@ -49,6 +49,7 @@ class ViewModel{
             switch result {
             case .success(let response):
                 self?.postArray = response
+                print(Networking.urlSpecificPost)
             case .failure(let error):
                 self?.errorMessage = error.localizedDescription
             }

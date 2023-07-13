@@ -176,6 +176,7 @@ class TableViewCell: UITableViewCell {
         if let user = self.viewModel.user {
             self.cellTapped?(user)
             TableViewCell.userId = user.id
+            Networking.urlSpecificPost = "/posts?userId=\(TableViewCell.userId!)"
             print(TableViewCell.userId!)
         }
     }

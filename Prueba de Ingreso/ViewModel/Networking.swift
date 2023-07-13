@@ -18,7 +18,7 @@ class Networking {
     
     static let urlUser = "/users"
     static let urlAllPosts = "/posts"
-    static let urlSpecificPost = "/posts?userId=\(TableViewCell.userId!)"
+    static var urlSpecificPost = "/posts?userId=\(TableViewCell.userId!)"
     
     
     func request<T: Decodable>(path: String, completion: @escaping (Result<T, Error>) -> Void) {
@@ -39,7 +39,7 @@ class Networking {
                 } catch {
                     completion(.failure(error))
                 }
-            }
+             }
         }.resume()
     }
 }
