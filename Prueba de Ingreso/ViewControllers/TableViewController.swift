@@ -31,18 +31,23 @@ class TableViewController: UIViewController, UISearchResultsUpdating{
     
     override func loadView() {
         super.loadView()
-        userViewModel.getUsers()
-        setup()
-        userViewModel.updateView = { [weak self] in
-            if let errorMessage = self?.userViewModel.errorMessage {
-                let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "ok", style: .cancel))
-                self?.present(alert, animated: false)
-            } else {
-                self?.tableView.reloadData()
+        //app opened, are users saved?
+        if userViewModel.userArray == []{
+            userViewModel.getUsers()
+            userViewModel.saveData()
+        }
+            setup()
+            print(userViewModel.defaults.array(forKey: "SavedUsers")!)
+            userViewModel.updateView = { [weak self] in
+                if let errorMessage = self?.userViewModel.errorMessage {
+                    let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "ok", style: .cancel))
+                    self?.present(alert, animated: false)
+                } else {
+                    self?.tableView.reloadData()
+                }
             }
         }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

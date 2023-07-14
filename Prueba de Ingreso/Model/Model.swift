@@ -8,7 +8,21 @@
 import Foundation
 
 //MARK: - User
-struct User: Codable{
+struct User: Codable, Equatable{
+    
+    static func == (lhs: User, rhs: User) -> Bool {
+        let areEqual =
+        lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.username == rhs.username &&
+        lhs.email == rhs.email &&
+        lhs.address == rhs.address &&
+        lhs.phone == rhs.phone &&
+        lhs.website == rhs.website &&
+        lhs.company == rhs.company
+        return areEqual
+    }
+    
     let id: Int
     let name: String
     let username: String
@@ -19,7 +33,18 @@ struct User: Codable{
     let company: Company
 }
 
-struct Address: Codable {
+struct Address: Codable, Equatable {
+    
+    static func == (lhs: Address, rhs: Address) -> Bool {
+        let isEqual =
+        lhs.street == rhs.street &&
+        lhs.suite == rhs.suite &&
+        lhs.city == rhs.city &&
+        lhs.zipcode == rhs.zipcode &&
+        lhs.geo == rhs.geo
+        return isEqual
+    }
+    
     let street: String
     let suite: String
     let city: String
@@ -27,18 +52,18 @@ struct Address: Codable {
     let geo: Geo
 }
 
-struct Geo: Codable{
+struct Geo: Codable, Equatable{
     let lat: String
     let lng: String
 }
 
-struct Company: Codable{
+struct Company: Codable, Equatable{
     let name: String
     let catchPhrase: String
     let bs: String
 }
 //MARK: - Posts
-struct Post: Codable{
+struct Post: Codable, Equatable{
     let userId: Int
     let id: Int
     let title: String

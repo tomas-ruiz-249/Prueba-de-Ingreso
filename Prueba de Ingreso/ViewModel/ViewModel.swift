@@ -8,6 +8,9 @@
 import Foundation
 
 class ViewModel{
+    
+    public let defaults = UserDefaults.standard
+    
     var updateView: (() -> Void)?
     var userArray: [User] = [] {
         didSet {
@@ -18,7 +21,7 @@ class ViewModel{
     var filteredUsers = [User]()
     var errorMessage: String?
     let networking = Networking()
-    
+        
     
     func getUsers() {
         networking.request(path: Networking.urlUser) { [weak self] (result: Result<[User], Error>) in
@@ -58,3 +61,11 @@ class ViewModel{
     }
 }
 
+extension ViewModel{
+    
+    func saveData(){
+        defaults.set(userArray, forKey: "SavedUsers")
+        userArray = defaults.array(forKey: "SavedUsers") as? [User] ?? [User]()
+        print(userArray)
+    }
+}
