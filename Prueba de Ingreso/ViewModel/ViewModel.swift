@@ -28,6 +28,7 @@ class ViewModel{
             switch result {
             case .success(let response):
                 self?.userArray = response
+                self?.saveData()
             case .failure(let error):
                 self?.errorMessage = error.localizedDescription
             }
@@ -64,8 +65,24 @@ class ViewModel{
 extension ViewModel{
     
     func saveData(){
-        defaults.set(userArray, forKey: "SavedUsers")
-        userArray = defaults.array(forKey: "SavedUsers") as? [User] ?? [User]()
-        print(userArray)
+        do {
+            let encodedData = try JSONEncoder().encode(userArray)
+            defaults.set(encodedData, forKey: "SavedUsers")
+
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        
+        if let savedData = defaults.object(forKey: "SavedUsers") as? Data {
+            do{
+                let savedUsers = try JSONDecoder().decode([User].self, from: savedData)
+                print(savedUsers)
+
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

@@ -34,10 +34,8 @@ class TableViewController: UIViewController, UISearchResultsUpdating{
         //app opened, are users saved?
         if userViewModel.userArray == []{
             userViewModel.getUsers()
-            userViewModel.saveData()
         }
             setup()
-            print(userViewModel.defaults.array(forKey: "SavedUsers")!)
             userViewModel.updateView = { [weak self] in
                 if let errorMessage = self?.userViewModel.errorMessage {
                     let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertController.Style.alert)
