@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--View Controller Storyboard-->
         <scene sceneID="2TI-Fb-Q8a">
             <objects>
-                <viewController id="S3M-kn-58L" customClass="TableViewController" customModule="Prueba_de_Ingreso" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S3M-kn-58L" customClass="ViewControllerStoryboard" customModule="Prueba_de_Ingreso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s1g-FG-vad">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableViewS" destination="CvF-ft-2RT" id="0D4-JQ-uAA"/>
+                        <outlet property="tableView" destination="CvF-ft-2RT" id="L8Y-FM-2mj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ys-p7-QFE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
