@@ -11,7 +11,6 @@ import Foundation
 class TableViewController: UIViewController, UISearchResultsUpdating{
     
     //MARK: - UI
-    
     private lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -82,12 +81,13 @@ private extension TableViewController{
 }
 
 extension TableViewController: UITableViewDataSource, UISearchBarDelegate {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.userViewModel.filteredUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = self.tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellID, for: indexPath) as! TableViewCell
         cell.configure(with: self.userViewModel.filteredUsers[indexPath.row])
         cell.cellTapped = { [weak self] user in
@@ -97,7 +97,7 @@ extension TableViewController: UITableViewDataSource, UISearchBarDelegate {
         
         return cell
     }
-    
+
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {return}
         if !text.isEmpty {
@@ -114,6 +114,7 @@ extension TableViewController: UITableViewDataSource, UISearchBarDelegate {
         print("filtered", userViewModel.filteredUsers.count, "total", userViewModel.userArray.count)
         
         self.tableView.reloadData()
+         
     }
 }
 
