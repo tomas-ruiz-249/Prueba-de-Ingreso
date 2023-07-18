@@ -21,6 +21,8 @@
 		9DA7368A2A5755CE0096B292 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA736892A5755CE0096B292 /* PostsViewController.swift */; };
 		9DA7368C2A57588B0096B292 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA7368B2A57588B0096B292 /* PostsTableViewCell.swift */; };
 		9DEE43702A65EDC5000A3A53 /* ViewControllerStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEE436F2A65EDC5000A3A53 /* ViewControllerStoryboard.swift */; };
+		9DEE437A2A67540B000A3A53 /* UsersTableViewCellStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEE43782A67540B000A3A53 /* UsersTableViewCellStoryboard.swift */; };
+		9DEE437B2A67540B000A3A53 /* UsersTableViewCellStoryboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DEE43792A67540B000A3A53 /* UsersTableViewCellStoryboard.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		9DA736892A5755CE0096B292 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		9DA7368B2A57588B0096B292 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
 		9DEE436F2A65EDC5000A3A53 /* ViewControllerStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerStoryboard.swift; sourceTree = "<group>"; };
+		9DEE43782A67540B000A3A53 /* UsersTableViewCellStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCellStoryboard.swift; sourceTree = "<group>"; };
+		9DEE43792A67540B000A3A53 /* UsersTableViewCellStoryboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCellStoryboard.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 		9D68A4DF2A4DE0B700BEC781 /* Prueba de Ingreso */ = {
 			isa = PBXGroup;
 			children = (
+				9DEE43712A674E10000A3A53 /* Storyboard */,
 				9D850CA12A4E43E600EF49DB /* utilities */,
 				9D68A4F72A4DE26B00BEC781 /* ViewControllers */,
 				9D68A4F62A4DE26200BEC781 /* Model */,
@@ -118,7 +123,6 @@
 			children = (
 				9D68A4E42A4DE0B700BEC781 /* TableViewController.swift */,
 				9DA736892A5755CE0096B292 /* PostsViewController.swift */,
-				9DEE436F2A65EDC5000A3A53 /* ViewControllerStoryboard.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -129,6 +133,32 @@
 				9D850CA22A4E441600EF49DB /* colors.swift */,
 			);
 			path = utilities;
+			sourceTree = "<group>";
+		};
+		9DEE43712A674E10000A3A53 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9DEE43732A674E3B000A3A53 /* views */,
+				9DEE43722A674E22000A3A53 /* View Controller */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9DEE43722A674E22000A3A53 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9DEE436F2A65EDC5000A3A53 /* ViewControllerStoryboard.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		9DEE43732A674E3B000A3A53 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				9DEE43782A67540B000A3A53 /* UsersTableViewCellStoryboard.swift */,
+				9DEE43792A67540B000A3A53 /* UsersTableViewCellStoryboard.xib */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +221,7 @@
 			files = (
 				9D68A4ED2A4DE0B900BEC781 /* LaunchScreen.storyboard in Resources */,
 				9D68A4EA2A4DE0B900BEC781 /* Assets.xcassets in Resources */,
+				9DEE437B2A67540B000A3A53 /* UsersTableViewCellStoryboard.xib in Resources */,
 				9D68A4E82A4DE0B700BEC781 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +240,7 @@
 				9DA736882A5726D20096B292 /* Networking.swift in Sources */,
 				9DEE43702A65EDC5000A3A53 /* ViewControllerStoryboard.swift in Sources */,
 				9D68A5002A4E14ED00BEC781 /* ViewModel.swift in Sources */,
+				9DEE437A2A67540B000A3A53 /* UsersTableViewCellStoryboard.swift in Sources */,
 				9D68A5022A4E27A000BEC781 /* TableViewCell.swift in Sources */,
 				9DA7368C2A57588B0096B292 /* PostsTableViewCell.swift in Sources */,
 				9D68A4E12A4DE0B700BEC781 /* AppDelegate.swift in Sources */,
