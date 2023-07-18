@@ -20,7 +20,7 @@ class ViewControllerStoryboard: UIViewController {
 
 extension ViewControllerStoryboard: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("you tapped me")
+        print("cell taped ")
     }
 }
 extension ViewControllerStoryboard: UITableViewDataSource{
