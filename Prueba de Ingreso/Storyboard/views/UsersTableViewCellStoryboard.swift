@@ -9,8 +9,14 @@ import UIKit
 
 class UsersTableViewCellStoryboard: UITableViewCell {
 
-    @IBOutlet var myLabel: UILabel!
-    @IBOutlet var myImage: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var contentStack: UIStackView!
+    @IBOutlet var phoneLabel: UILabel!
+    @IBOutlet var phoneImg: UIImageView!
+    @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var emailImg: UIImageView!
+    @IBOutlet var emptyLabel: UILabel!
+    @IBOutlet var postsButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +29,13 @@ class UsersTableViewCellStoryboard: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(with item: User){
+        nameLabel.text = item.name
+        nameLabel.textColor = .primary
+        phoneLabel.text = item.phone
+        phoneImg.image = .init(systemName: "phone.fill")
+        emailLabel.text = item.email
+        emailImg.image = .init(systemName: "mail.fill")
+        emptyLabel.text = ""
+    }
 }

@@ -47,8 +47,7 @@ extension ViewControllerStoryboard: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsersTableViewCellStoryboard",
                                                  for: indexPath) as! UsersTableViewCellStoryboard
-        cell.myLabel.text = self.numbers[indexPath.row]
-        cell.myImage.backgroundColor = .systemRed
+        cell.configure(with: self.userViewModel.filteredUsers[indexPath.row])
         return cell
     }
     
