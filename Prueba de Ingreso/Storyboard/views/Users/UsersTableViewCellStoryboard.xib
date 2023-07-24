@@ -72,6 +72,9 @@
                                         <rect key="frame" x="271.33333333333326" y="0.0" width="383.66666666666674" height="110"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <connections>
+                                            <action selector="postsButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NEp-La-uOa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="1JR-IX-6hN"/>
@@ -93,13 +96,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="contentStack" destination="xZg-Rd-oYJ" id="RjL-6d-SvC"/>
-                <outlet property="emailImg" destination="8d8-XP-rvy" id="Fe5-kl-9SL"/>
-                <outlet property="emailLabel" destination="clb-qB-nQn" id="ked-Gu-9gw"/>
-                <outlet property="emptyLabel" destination="mzf-48-ybx" id="hHK-ih-BCM"/>
-                <outlet property="nameLabel" destination="Ni7-CD-eK0" id="Npi-2k-uYp"/>
-                <outlet property="phoneImg" destination="Eye-gk-n1c" id="aPH-PC-nZu"/>
-                <outlet property="phoneLabel" destination="ugP-j4-t1U" id="x1R-ID-kDw"/>
+                <outlet property="contentStack" destination="xZg-Rd-oYJ" id="UFj-w9-Pnc"/>
+                <outlet property="emailImg" destination="8d8-XP-rvy" id="OhQ-1Y-Dkf"/>
+                <outlet property="emailLabel" destination="clb-qB-nQn" id="V3U-hn-AlZ"/>
+                <outlet property="emptyLabel" destination="mzf-48-ybx" id="BkC-aO-HV9"/>
+                <outlet property="nameLabel" destination="Ni7-CD-eK0" id="rSR-22-LwM"/>
+                <outlet property="phoneImg" destination="Eye-gk-n1c" id="92o-8S-EAp"/>
+                <outlet property="phoneLabel" destination="ugP-j4-t1U" id="0Z1-fr-sdO"/>
                 <outlet property="postsButton" destination="vRV-KE-b45" id="Mgg-LJ-qFC"/>
             </connections>
             <point key="canvasLocation" x="-293.89312977099235" y="-185.91549295774649"/>

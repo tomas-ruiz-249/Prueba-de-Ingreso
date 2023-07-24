@@ -9,14 +9,15 @@ import UIKit
 
 class ViewControllerStoryboard: UIViewController {
 
+    @IBOutlet var navBar: UINavigationBar!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
     
     private lazy var userViewModel = ViewModel()
+    let searchController = UISearchController()
     
-    private let numbers = ["first","second","third","fourth","fifth","sixth","seventh","eigth","ninth","tenth"]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
         userViewModel.getUsers()
         userViewModel.updateView = { [weak self] in
             if let errorMessage = self?.userViewModel.errorMessage {
@@ -31,10 +32,18 @@ class ViewControllerStoryboard: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: "UsersTableViewCellStoryboard")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        searchBar.backgroundColor = .primary
+        //searchBar.searchTextField.leftView?.tintColor = .systemGray
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
 }
 
-extension ViewControllerStoryboard: UITableViewDelegate{
+extension ViewControllerStoryboard: UITableViewDelegate, UISearchBarDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("cell taped ")
     }
@@ -49,6 +58,25 @@ extension ViewControllerStoryboard: UITableViewDataSource{
                                                  for: indexPath) as! UsersTableViewCellStoryboard
         cell.configure(with: self.userViewModel.filteredUsers[indexPath.row])
         return cell
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {return}
+        if !text.isEmpty {
+            userViewModel.filteredUsers = userViewModel.userArray.filter {
+                let name = $0.name.lowercased()
+                let text = text.lowercased()
+                return name.contains(text)
+            }
+        }
+        else{
+            userViewModel.filteredUsers = userViewModel.userArray
+        }
+        
+        print("filtered", userViewModel.filteredUsers.count, "total", userViewModel.userArray.count)
+        
+        self.tableView.reloadData()
+         
     }
     
 }

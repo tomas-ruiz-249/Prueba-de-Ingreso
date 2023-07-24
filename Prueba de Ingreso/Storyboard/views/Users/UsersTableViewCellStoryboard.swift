@@ -18,6 +18,10 @@ class UsersTableViewCellStoryboard: UITableViewCell {
     @IBOutlet var emptyLabel: UILabel!
     @IBOutlet var postsButton: UIButton!
     
+    @IBAction func postsButtonPressed(_ sender: Any){
+        print("button pressed")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
