@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class PostsTableViewCellStoryboard: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel!

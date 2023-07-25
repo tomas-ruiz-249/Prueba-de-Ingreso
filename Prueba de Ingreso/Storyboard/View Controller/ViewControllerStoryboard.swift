@@ -57,6 +57,11 @@ extension ViewControllerStoryboard: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsersTableViewCellStoryboard",
                                                  for: indexPath) as! UsersTableViewCellStoryboard
         cell.configure(with: self.userViewModel.filteredUsers[indexPath.row])
+        
+        cell.cellTapped = {
+            let vc = PostsViewControllerStoryboard()
+            self.present(vc, animated: true)
+        }
         return cell
     }
     

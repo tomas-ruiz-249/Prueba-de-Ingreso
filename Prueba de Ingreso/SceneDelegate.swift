@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PostsViewControllerStoryboard")
+        let vc = storyboard.instantiateViewController(withIdentifier: "ViewControllerStoryboard")
         //self.present(vc, animated: true)
         
         /*window = UIWindow(windowScene: scene)

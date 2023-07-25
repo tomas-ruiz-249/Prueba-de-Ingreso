@@ -7,8 +7,15 @@
 
 import UIKit
 
+class UserTableViewCellViewModelStoryboard {
+    var user: User?
+}
+
 class UsersTableViewCellStoryboard: UITableViewCell {
 
+    var viewModel = TableViewCellViewModel()
+    var cellTapped: (() -> Void)?
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var contentStack: UIStackView!
     @IBOutlet var phoneLabel: UILabel!
@@ -20,6 +27,7 @@ class UsersTableViewCellStoryboard: UITableViewCell {
     
     @IBAction func postsButtonPressed(_ sender: Any){
         print("button pressed")
+        self.cellTapped?()
     }
     
     override func awakeFromNib() {
