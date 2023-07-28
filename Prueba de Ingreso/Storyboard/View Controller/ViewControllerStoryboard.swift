@@ -58,9 +58,13 @@ extension ViewControllerStoryboard: UITableViewDataSource{
                                                  for: indexPath) as! UsersTableViewCellStoryboard
         cell.configure(with: self.userViewModel.filteredUsers[indexPath.row])
         
-        cell.cellTapped = {
-            let vc = PostsViewControllerStoryboard()
-            self.present(vc, animated: true)
+        cell.cellTapped = { [weak self] user in
+            guard let vc = self?.storyboard?.instantiateViewController(identifier: "PostsViewControllerStoryboard") as? PostsViewControllerStoryboard else{
+                print("vc not found")
+                return
+            }
+            print(Networking.urlPost)
+            self?.present(vc, animated: true)
         }
         return cell
     }

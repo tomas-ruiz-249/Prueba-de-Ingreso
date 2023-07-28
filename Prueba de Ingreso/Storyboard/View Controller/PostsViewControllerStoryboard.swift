@@ -27,6 +27,7 @@ class PostsViewControllerStoryboard: UIViewController {
             }
         }
         let nib = UINib(nibName: "PostsTableViewCellStoryboard", bundle: nil)
+        
         tableView.register(nib, forCellReuseIdentifier: "PostsTableViewCellStoryboard")
         tableView.delegate = self
         tableView.dataSource = self

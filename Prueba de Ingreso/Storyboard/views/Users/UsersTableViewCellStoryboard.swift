@@ -14,7 +14,7 @@ class UserTableViewCellViewModelStoryboard {
 class UsersTableViewCellStoryboard: UITableViewCell {
 
     var viewModel = TableViewCellViewModel()
-    var cellTapped: (() -> Void)?
+    var cellTapped: ((User) -> Void)?
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var contentStack: UIStackView!
@@ -25,10 +25,6 @@ class UsersTableViewCellStoryboard: UITableViewCell {
     @IBOutlet var emptyLabel: UILabel!
     @IBOutlet var postsButton: UIButton!
     
-    @IBAction func postsButtonPressed(_ sender: Any){
-        print("button pressed")
-        self.cellTapped?()
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,6 +38,7 @@ class UsersTableViewCellStoryboard: UITableViewCell {
     }
     
     func configure(with item: User){
+        self.viewModel.user? = item
         nameLabel.text = item.name
         nameLabel.textColor = .primary
         phoneLabel.text = item.phone
@@ -50,4 +47,13 @@ class UsersTableViewCellStoryboard: UITableViewCell {
         emailImg.image = .init(systemName: "mail.fill")
         emptyLabel.text = ""
     }
+    
+    @IBAction func postsButtonPressed(_ sender: Any){
+        print("button pressed")
+        if let user = self.viewModel.user{
+            Networking.urlPost = "/posts?userId=\(user.id)"
+            self.cellTapped?(user)
+        }
+    }
 }
+

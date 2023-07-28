@@ -90,6 +90,7 @@ extension TableViewController: UITableViewDataSource, UISearchBarDelegate {
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellID, for: indexPath) as! TableViewCell
         cell.configure(with: self.userViewModel.filteredUsers[indexPath.row])
+        
         cell.cellTapped = { [weak self] user in
             let vc = PostsViewController()
             self?.navigationController?.pushViewController(vc, animated: true)
