@@ -8,7 +8,10 @@
 import UIKit
 
 class UserTableViewCellViewModelStoryboard {
-    var user: User?
+    var user: User
+    init(user: User) {
+        self.user = user
+    }
 }
 
 class UsersTableViewCellStoryboard: UITableViewCell {
@@ -38,7 +41,7 @@ class UsersTableViewCellStoryboard: UITableViewCell {
     }
     
     func configure(with item: User){
-        self.viewModel.user? = item
+        self.viewModel.user = item
         nameLabel.text = item.name
         nameLabel.textColor = .primary
         phoneLabel.text = item.phone
@@ -49,7 +52,7 @@ class UsersTableViewCellStoryboard: UITableViewCell {
     }
     
     @IBAction func postsButtonPressed(_ sender: Any){
-        print("button pressed")
+        print(self.viewModel.user!.id)
         if let user = self.viewModel.user{
             Networking.urlPost = "/posts?userId=\(user.id)"
             self.cellTapped?(user)

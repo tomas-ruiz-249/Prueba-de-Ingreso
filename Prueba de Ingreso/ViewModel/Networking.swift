@@ -17,7 +17,7 @@ class Networking {
     private let baseURL = "https://jsonplaceholder.typicode.com"
     
     static let urlUser = "/users"
-    var urlPost = "/posts?userId="
+    static var urlPost = "/posts?"
     
     
     func request<T: Decodable>(path: String, completion: @escaping (Result<T, Error>) -> Void) {
